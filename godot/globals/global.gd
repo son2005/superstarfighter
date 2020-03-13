@@ -28,6 +28,7 @@ var array_language: Array = ["english", "italiano", "español", "euskara", "fran
 var full_screen = true setget _set_full_screen
 
 func _set_full_screen(value: bool):
+	value = !debug
 	full_screen = value
 	OS.window_fullscreen = full_screen
 	OS.move_window_to_foreground()
@@ -111,7 +112,7 @@ func _set_sfx_volume(new_value):
 var templates : Dictionary # {int : Resources}
 
 # DEBUG
-var debug : bool = false
+var debug : bool = true
 
 # Soundtrack
 onready var bgm = Soundtrack

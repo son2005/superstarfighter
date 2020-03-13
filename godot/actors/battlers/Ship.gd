@@ -138,8 +138,11 @@ func _integrate_forces(state):
 		
 	if entity.has('Flowing'):
 		apply_impulse(Vector2(), entity.get_node('Flowing').get_flow().get_flow_vector(position))
-		
-	set_applied_torque(rotation_dir * 75000)
+
+	var temp = 75000
+	if global.debug:
+		temp = 35000
+	set_applied_torque(rotation_dir * temp)
 	
 	# force the physics engine
 	var xform = state.get_transform()
